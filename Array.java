@@ -1,0 +1,103 @@
+package exam;
+
+import java.util.Arrays;
+
+public class Array {
+
+	public static void main(String[] args) {
+		// Array
+		// 같은 타입의 변수들로 이루어진 집합
+		// 배열을 구성하는 각각의 값 : 요소(element)
+		// 배열에서 위치를 가리키는 숫자 : 인덱스(index)
+		
+		// 배열의 선언과 동시에 초기화
+		int[] number = {10, 20, 30};	// 초기화 블록
+		int[] number2 = new int[] {20, 30, 40};
+		
+		System.out.println(number[0]);
+		System.out.println(number2[0]);
+		
+		// 배열 선언후 인덱스별로 초기화하는 케이스
+		String[] str1 = new String[5];
+		
+		str1[0] = "80";
+		str1[1] = "test";
+		str1[2] = "hello";
+		str1[3] = "java";
+		// str1[7] = "world";
+		System.out.println(str1[2]);
+		// System.out.println(str1[7]);
+		// Error 이유 : 범위초과(str1 배열)
+		
+		
+		// 배열의 응용
+		// 1. 배열에 입력받은 요소들의 총합과 평균 구하기
+		int[] number3 = new int[] {85, 75, 55, 77, 86};
+		int sum = 0;
+		
+		for (int i=0; i<number3.length; i++) {
+			sum += number3[i];
+		}  // 총합
+		System.out.println();
+		System.out.println(sum);
+		System.out.println(sum/number3.length);
+		
+		// 다차원 배열(n차원 배열)
+		// 2차원 이상의 배열 : 배열요소로 또 다른 배열을 가지는 배열
+		
+		// 2차원 배열 예시
+		// 타입[][] 배열명; 
+		// 타입 배열명[][];
+		// 타입[] 배열명[];
+		int[][] di_arr = {
+				{10, 30, 50},
+				{15, 25, 35}
+		};
+		System.out.println();
+		System.out.println(di_arr[0]);
+		System.out.println(di_arr[0][0]);
+		
+		// 가변배열 : 열의 길이를 명시하지 않고 행마다 다른 길이의 배열을 요소로 저장하는 배열
+		int[][] arr2 = {
+				{10, 15},
+				{10, 20, 30, 45},
+				{10}
+    		};
+		System.out.println(arr2[1][0]);
+		
+		// 배열의 복사
+		// 자바에서 배열은 생성 후 길이를 변경하기가 매우 어렵다
+		// 어떤 배열에 더 많은 데이터를 저장하기위해 이전 배열의 데이터를 새롭게 옮길 매열로 복사.
+		// arraycopy, copyof, clone
+		// for문 + index 복사
+		int[] arr3 = new int[] {1, 2, 3, 4, 5};
+		int nlength = 10;
+		
+		int[] newArr1 = new int[nlength];
+		// arraycopy(기존배열, 옮길배열, 옮길범위)
+		System.arraycopy(arr3, 0, newArr1, 0, arr3.length);
+		System.out.println();
+		for(int i=0; i<newArr1.length; i++) {
+			System.out.print(newArr1[i] + " ");
+			}
+		System.out.println();
+
+		// copyof
+		int[] arr4 = Arrays.copyOf(arr3, nlength);
+		for(int j=0; j<arr4.length; j++) {
+			System.out.print(arr4[j] + " ");
+			}
+		System.out.println();
+
+		// clone
+		int[] arr5 = (int[])arr3.clone();
+		for(int k=0; k<arr5.length; k++) {
+			System.out.print(arr5[k] + " ");
+			}
+		System.out.println();
+		
+		
+		}
+	}
+
+
